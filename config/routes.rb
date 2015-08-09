@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'auth/facebook/callback', to: "sessions#create"
+  match 'sign_out', to: "sessions#destroy", via: :delete
+
   # get 'users/index'
   #
   # get 'users/edit'

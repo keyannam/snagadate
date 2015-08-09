@@ -9,11 +9,13 @@
 </head>
 <body>
 
+<% if current_user %>
   <nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
     <ul class="nav navmenu-nav">
       <li class="active"><a href="#"><i class="fa fa-users"></i> Discover</a></li>
       <li class="active"><a href="#"><i class="fa fa-heart"></i> Matches</a></li>
       <li class="active"><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+      <li><%= link_to 'sign_out', method: :delete do %><i class="fa fa-cog"></i> Sign Out<% end %></li>
     </ul>
 
   </nav>
@@ -29,9 +31,13 @@
 
   </div>
 
+<% else %>
+
   <a class="navbar-brand" href="#">
-    <%= image_tag 'logo-white.png', alt: "Snagadate Logo", class: "logo-brand" %>
+    <%= image_tag 'logo_white.png', alt: "Snagadate Logo", class: "logo-brand" %>
   </a>
+
+<% end %>
 
 <%= yield %>
 
